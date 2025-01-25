@@ -10,7 +10,6 @@ const FormComp = () => {
     const {name, email, password, dispatch} = React.useContext(formContext)
     const[result,setResult] = React.useState({status : 400, name : '', email : '', password : '',message : ''})
 
-   console.log(result)
     function handleSubmission(e) {
         e.preventDefault()
         if(!name || !email || !password) {
@@ -35,6 +34,7 @@ const FormComp = () => {
   return (
     <>
     <form className='flex flex-col mt-12 w-2/4 gap-4' onSubmit={handleSubmission}>
+        <h2 className='text-2xl font-bold text-center dark:text-white'>Form</h2>
         <input className='border-2 rounded-md px-4 py-2 dark:text-white dark:border-white ' name='name' type="text" placeholder="Name" onChange={handleChange} />
        {result.name && <p className='text-red-600 text-xs mt-[-10px]'>{result.name}</p>}
         <input className='border-2 rounded-md px-4 py-2 dark:text-white dark:border-white ' name='email' type="email" placeholder="Email" onChange={handleChange}  />
@@ -48,4 +48,4 @@ const FormComp = () => {
   )
 }
 
-export default FormComp
+export default React.memo(FormComp)

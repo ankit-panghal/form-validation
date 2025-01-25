@@ -10,7 +10,7 @@ const ThemeComp = () => {
        { 
          theme === 'LIGHT' ? <DarkMode />
          :
-         <LightMode/>   
+         <LightMode sx={{color : 'white'}}/>   
     }
     </div>
   )
